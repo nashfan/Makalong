@@ -8,229 +8,119 @@
   @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=Noto+Sans+SC:wght@300;400;500&display=swap');
 
   :root {
-    --pink:     #FF8FA3;
-    --pink-lt:  #FFD6DF;
-    --pink-bg:  #FFF0F3;
-    --mint:     #A8E6C8;
-    --mint-lt:  #D8F5E8;
-    --yellow:   #FFD97D;
-    --text:     #5C2D3A;
-    --text-lt:  #9B6470;
-    --white:    #FFFFFF;
-    --shadow:   0 4px 24px rgba(255,100,130,0.12);
+    --pink:    #FF8FA3;
+    --pink-lt: #FFD6DF;
+    --pink-bg: #FFF0F3;
+    --mint-lt: #D8F5E8;
+    --text:    #5C2D3A;
+    --text-lt: #9B6470;
   }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
+  * { margin:0; padding:0; box-sizing:border-box; }
   body {
     font-family: 'Noto Sans SC', sans-serif;
-    background: var(--pink-bg);
-    color: var(--text);
-    line-height: 1.9;
-    min-height: 100vh;
+    background: var(--pink-bg); color: var(--text);
+    line-height: 1.9; min-height: 100vh;
   }
-
-  /* Floating macaron decorations */
   body::before {
-    content: '';
-    position: fixed;
-    top: -120px; right: -120px;
-    width: 340px; height: 340px;
-    background: radial-gradient(circle, var(--pink-lt) 0%, transparent 70%);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 0;
+    content:''; position:fixed; top:-120px; right:-120px;
+    width:340px; height:340px;
+    background:radial-gradient(circle, var(--pink-lt) 0%, transparent 70%);
+    border-radius:50%; pointer-events:none; z-index:0;
   }
   body::after {
-    content: '';
-    position: fixed;
-    bottom: -100px; left: -100px;
-    width: 280px; height: 280px;
-    background: radial-gradient(circle, var(--mint-lt) 0%, transparent 70%);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 0;
+    content:''; position:fixed; bottom:-100px; left:-100px;
+    width:280px; height:280px;
+    background:radial-gradient(circle, var(--mint-lt) 0%, transparent 70%);
+    border-radius:50%; pointer-events:none; z-index:0;
   }
-
-  /* Header */
   header {
-    position: relative;
-    z-index: 1;
-    background: linear-gradient(135deg, #FFB8C8 0%, #FFD6DF 50%, #C8F0DC 100%);
-    padding: 56px 24px 44px;
-    text-align: center;
-    overflow: hidden;
+    position:relative; z-index:1;
+    background:linear-gradient(135deg,#FFB8C8 0%,#FFD6DF 50%,#C8F0DC 100%);
+    padding:56px 24px 44px; text-align:center; overflow:hidden;
   }
   header::before {
-    content: '🍬🧁🍰🍭🎂';
-    position: absolute;
-    top: 10px; left: 50%;
-    transform: translateX(-50%);
-    font-size: 22px;
-    letter-spacing: 8px;
-    opacity: 0.35;
+    content:'🍬🧁🍰🍭🎂'; position:absolute; top:10px; left:50%;
+    transform:translateX(-50%); font-size:22px; letter-spacing:8px; opacity:.35;
   }
-
   .logo-emoji {
-    font-size: 56px;
-    display: block;
-    margin-bottom: 10px;
-    animation: float 3s ease-in-out infinite;
+    font-size:56px; display:block; margin-bottom:10px;
+    animation:float 3s ease-in-out infinite;
   }
-  @keyframes float {
-    0%,100% { transform: translateY(0); }
-    50%      { transform: translateY(-8px); }
-  }
-
+  @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
   header h1 {
-    font-family: 'Noto Serif SC', serif;
-    font-size: 28px;
-    font-weight: 700;
-    color: var(--text);
-    letter-spacing: 2px;
+    font-family:'Noto Serif SC',serif; font-size:26px; font-weight:700;
+    color:var(--text); letter-spacing:2px;
   }
-  header .subtitle {
-    font-size: 14px;
-    color: var(--text-lt);
-    margin-top: 6px;
-    font-weight: 300;
-  }
-
-  /* Main container */
+  header .sub { font-size:14px; color:var(--text-lt); margin-top:6px; }
   main {
-    position: relative;
-    z-index: 1;
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 32px 20px 80px;
+    position:relative; z-index:1; max-width:720px;
+    margin:0 auto; padding:32px 20px 80px;
   }
-
-  /* Effective date badge */
-  .date-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: var(--white);
-    border: 2px solid var(--pink-lt);
-    border-radius: 40px;
-    padding: 6px 18px;
-    font-size: 13px;
-    color: var(--text-lt);
-    margin-bottom: 28px;
-    box-shadow: var(--shadow);
+  .badge {
+    display:inline-flex; align-items:center; gap:6px;
+    background:white; border:2px solid var(--pink-lt); border-radius:40px;
+    padding:6px 18px; font-size:13px; color:var(--text-lt); margin-bottom:28px;
+    box-shadow:0 4px 24px rgba(255,100,130,.12);
   }
-
-  /* Section cards */
-  .section {
-    background: var(--white);
-    border-radius: 20px;
-    padding: 28px 28px 24px;
-    margin-bottom: 18px;
-    box-shadow: var(--shadow);
-    border: 1.5px solid rgba(255,180,200,0.25);
-    transition: transform 0.2s, box-shadow 0.2s;
+  .card {
+    background:white; border-radius:20px; padding:28px 28px 24px;
+    margin-bottom:18px; box-shadow:0 4px 24px rgba(255,100,130,.10);
+    border:1.5px solid rgba(255,180,200,.25);
+    transition:transform .2s, box-shadow .2s;
   }
-  .section:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 32px rgba(255,100,130,0.16);
+  .card:hover { transform:translateY(-2px); box-shadow:0 8px 32px rgba(255,100,130,.16); }
+  .card-header {
+    display:flex; align-items:center; gap:12px;
+    margin-bottom:14px; padding-bottom:12px;
+    border-bottom:2px dashed var(--pink-lt);
   }
-
-  .section-header {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 14px;
-    padding-bottom: 12px;
-    border-bottom: 2px dashed var(--pink-lt);
+  .icon {
+    width:38px; height:38px; border-radius:12px;
+    display:flex; align-items:center; justify-content:center; font-size:20px; flex-shrink:0;
   }
-  .section-icon {
-    width: 38px; height: 38px;
-    border-radius: 12px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 20px;
-    flex-shrink: 0;
+  .ip { background:var(--pink-lt); }
+  .im { background:var(--mint-lt); }
+  .iy { background:#FFF3C4; }
+  .card h2 { font-family:'Noto Serif SC',serif; font-size:17px; font-weight:600; color:var(--text); }
+  .card p, .card li { font-size:14.5px; color:var(--text-lt); line-height:1.85; }
+  .card ul { padding-left:0; list-style:none; }
+  .card ul li { padding:5px 0 5px 22px; position:relative; }
+  .card ul li::before {
+    content:'·'; position:absolute; left:6px;
+    color:var(--pink); font-size:22px; line-height:1; top:4px;
   }
-  .icon-pink   { background: var(--pink-lt); }
-  .icon-mint   { background: var(--mint-lt); }
-  .icon-yellow { background: #FFF3C4; }
-
-  .section h2 {
-    font-family: 'Noto Serif SC', serif;
-    font-size: 17px;
-    font-weight: 600;
-    color: var(--text);
-    letter-spacing: 0.5px;
-  }
-
-  .section p, .section li {
-    font-size: 14.5px;
-    color: var(--text-lt);
-    line-height: 1.85;
-  }
-  .section ul {
-    padding-left: 0;
-    list-style: none;
-  }
-  .section ul li {
-    padding: 5px 0 5px 22px;
-    position: relative;
-  }
-  .section ul li::before {
-    content: '·';
-    position: absolute; left: 6px;
-    color: var(--pink);
-    font-size: 22px;
-    line-height: 1;
-    top: 4px;
-  }
-
-  /* Highlight box */
   .highlight {
-    background: linear-gradient(135deg, var(--pink-lt), var(--mint-lt));
-    border-radius: 12px;
-    padding: 14px 18px;
-    margin-top: 12px;
-    font-size: 13.5px;
-    color: var(--text);
-    font-weight: 500;
+    background:linear-gradient(135deg,var(--pink-lt),var(--mint-lt));
+    border-radius:12px; padding:14px 18px; margin-top:12px;
+    font-size:13.5px; color:var(--text); font-weight:500;
   }
-
-  /* Contact card */
-  .contact-card {
-    background: linear-gradient(135deg, #FFE0E8, #D8F5E8);
-    border-radius: 20px;
-    padding: 28px;
-    text-align: center;
-    margin-top: 28px;
-    border: 2px solid rgba(255,143,163,0.3);
+  .urlbox {
+    background:#F8F8FF; border:1.5px solid var(--pink-lt);
+    border-radius:10px; padding:10px 16px; margin-top:10px;
+    font-size:13px; word-break:break-all; line-height:1.6;
   }
-  .contact-card .emoji { font-size: 36px; margin-bottom: 10px; display: block; }
-  .contact-card h3 {
-    font-family: 'Noto Serif SC', serif;
-    font-size: 17px;
-    color: var(--text);
-    margin-bottom: 8px;
+  .urlbox a { color:var(--pink); text-decoration:none; font-weight:500; }
+  .urlbox a:hover { text-decoration:underline; }
+  .contact {
+    background:linear-gradient(135deg,#FFE0E8,#D8F5E8);
+    border-radius:20px; padding:32px 28px; text-align:center;
+    margin-top:28px; border:2px solid rgba(255,143,163,.3);
   }
-  .contact-card a {
-    color: var(--pink);
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 15px;
-    border-bottom: 2px solid var(--pink-lt);
-    padding-bottom: 1px;
-    transition: border-color 0.2s;
+  .contact .em { font-size:40px; margin-bottom:12px; display:block; }
+  .contact h3 { font-family:'Noto Serif SC',serif; font-size:18px; color:var(--text); margin-bottom:6px; }
+  .contact .desc { font-size:13px; color:var(--text-lt); margin-bottom:16px; }
+  .contact a {
+    display:inline-block; background:var(--pink); color:white;
+    padding:10px 28px; border-radius:30px; font-size:16px; font-weight:500;
+    text-decoration:none; letter-spacing:0.5px;
+    transition:opacity .2s, transform .2s;
   }
-  .contact-card a:hover { border-color: var(--pink); }
-
-  /* Footer */
+  .contact a:hover { opacity:.9; transform:translateY(-1px); }
   footer {
-    position: relative; z-index: 1;
-    text-align: center;
-    padding: 24px;
-    font-size: 12px;
-    color: var(--text-lt);
+    position:relative; z-index:1; text-align:center;
+    padding:24px; font-size:12px; color:var(--text-lt);
   }
-  footer span { margin: 0 8px; }
+  footer span { margin:0 8px; }
 </style>
 </head>
 <body>
@@ -238,104 +128,84 @@
 <header>
   <span class="logo-emoji">🍭</span>
   <h1>马卡龙碰碰消：治愈解压岛</h1>
-  <p class="subtitle">Privacy Policy · 隐私政策</p>
+  <p class="sub">Privacy Policy &nbsp;·&nbsp; 隐私政策</p>
 </header>
 
 <main>
 
-  <div class="date-badge">
-    📅 生效日期：2026 年 1 月 1 日 &nbsp;|&nbsp; 版本 1.0
-  </div>
+  <div class="badge">📅 生效日期：2026 年 3 月 8 日 &nbsp;|&nbsp; 版本 1.0</div>
 
-  <!-- 概述 -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-icon icon-pink">🌸</div>
+  <div class="card">
+    <div class="card-header">
+      <div class="icon ip">🌸</div>
       <h2>概述</h2>
     </div>
-    <p>
-      感谢您使用《马卡龙碰碰消：治愈解压岛》（以下简称"本游戏"）。我们非常重视您的隐私，
-      本政策将说明我们如何收集、使用和保护您的信息。
-    </p>
-    <div class="highlight">
-      🍬 简而言之：本游戏<strong>不收集任何个人身份信息</strong>，所有游戏数据仅存储在您的设备本地。
-    </div>
+    <p>感谢您使用《马卡龙碰碰消：治愈解压岛》。我们非常重视您的隐私，本政策说明我们如何收集、使用和保护您的信息。</p>
+    <div class="highlight">🍬 简而言之：本游戏<strong>不收集任何个人身份信息</strong>，所有游戏数据仅存储在您的设备本地。</div>
   </div>
 
-  <!-- 数据收集 -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-icon icon-mint">📦</div>
+  <div class="card">
+    <div class="card-header">
+      <div class="icon im">📦</div>
       <h2>我们收集哪些数据</h2>
     </div>
     <ul>
-      <li><strong>本地游戏数据</strong>：游戏进度、金币数量、已解锁装饰等信息，仅保存在您的设备上（UserDefaults），不会上传至任何服务器。</li>
-      <li><strong>不收集账号信息</strong>：本游戏无需注册，不收集姓名、邮箱、电话等任何个人身份信息。</li>
+      <li><strong>本地游戏数据</strong>：游戏进度、金币、已解锁装饰等，仅保存在设备本地（UserDefaults），不会上传至任何服务器。</li>
+      <li><strong>不收集账号信息</strong>：本游戏无需注册，不收集姓名、邮箱、电话等个人身份信息。</li>
       <li><strong>不收集位置信息</strong>：本游戏不请求、不使用您的地理位置。</li>
-      <li><strong>不追踪广告</strong>：本游戏不含广告 SDK，不进行任何广告追踪。</li>
+      <li><strong>不追踪广告</strong>：本游戏目前不含第三方广告 SDK，不进行任何广告追踪。</li>
     </ul>
   </div>
 
-  <!-- 第三方服务 -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-icon icon-yellow">🔗</div>
+  <div class="card">
+    <div class="card-header">
+      <div class="icon iy">🔗</div>
       <h2>第三方服务</h2>
     </div>
-    <p>本游戏目前<strong>不集成任何第三方 SDK 或分析服务</strong>（如 Firebase、Facebook SDK 等）。</p>
-    <p style="margin-top:10px;">App Store 的下载及支付行为受 Apple 隐私政策约束，与本游戏无关。</p>
+    <p>本游戏目前<strong>不集成任何第三方分析或广告 SDK</strong>。</p>
+    <p style="margin-top:10px;">通过 App Store 进行的购买行为受 Apple 隐私政策约束，与本游戏无关。</p>
   </div>
 
-  <!-- 儿童隐私 -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-icon icon-pink">👶</div>
+  <div class="card">
+    <div class="card-header">
+      <div class="icon ip">👶</div>
       <h2>儿童隐私保护</h2>
     </div>
-    <p>
-      本游戏适合全年龄段使用，包括 13 岁以下儿童。由于本游戏不收集任何个人信息，
-      因此符合《儿童网络隐私保护法》（COPPA）及相关法规的要求。
-    </p>
+    <p>本游戏适合全年龄段使用，包括 13 岁以下儿童。由于本游戏不收集任何个人信息，符合《儿童网络隐私保护法》（COPPA）及相关法规要求。</p>
   </div>
 
-  <!-- 数据安全 -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-icon icon-mint">🔒</div>
-      <h2>数据安全</h2>
+  <div class="card">
+    <div class="card-header">
+      <div class="icon im">🔒</div>
+      <h2>数据安全与管理</h2>
     </div>
-    <p>
-      游戏进度数据存储于设备本地，您可以随时通过以下方式管理：
-    </p>
+    <p>游戏数据存储于设备本地，您可以随时通过以下方式管理：</p>
     <ul>
       <li>在游戏内选择「退出重玩」即可清空所有本地数据。</li>
       <li>卸载游戏将自动删除所有本地数据。</li>
-      <li>使用 iCloud 备份时，数据随设备备份一同存储（受 Apple 隐私政策保护）。</li>
+      <li>使用 iCloud 备份时，数据随设备备份存储（受 Apple 隐私政策保护）。</li>
     </ul>
   </div>
 
-  <!-- 政策更新 -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-icon icon-yellow">🔄</div>
+  <div class="card">
+    <div class="card-header">
+      <div class="icon iy">🔄</div>
       <h2>隐私政策更新</h2>
     </div>
-    <p>
-      如本隐私政策发生变更，我们将在 App Store 版本更新说明中告知您，
-      并更新本页面顶部的生效日期。继续使用本游戏即表示您同意更新后的政策。
-    </p>
+    <p>如本政策发生变更，我们将在 App Store 版本更新说明中告知，并更新本页面顶部的生效日期。继续使用本游戏即表示您同意更新后的政策。</p>
+    <p style="margin-top:12px;">本隐私政策永久地址：</p>
+    <div class="urlbox">
+      <a href="https://github.com/nashfan/Makalong/blob/main/privacy_policy.html" target="_blank">
+        https://github.com/nashfan/Makalong/blob/main/privacy_policy.html
+      </a>
+    </div>
   </div>
 
-  <!-- 联系 -->
-  <div class="contact-card">
-    <span class="emoji">💌</span>
+  <div class="contact">
+    <span class="em">💌</span>
     <h3>如有疑问，欢迎联系我们</h3>
-    <p style="font-size:14px;color:#9B6470;margin:6px 0 12px;">
-      我们会在 3 个工作日内回复您的问题
-    </p>
-    <a href="mailto:game_ma666@163.com">support@yourgame.com</a>
-    <p style="font-size:12px;color:#C09AA4;margin-top:14px;">
-    </p>
+    <p class="desc">我们会在 3 个工作日内回复您的问题</p>
+    <a href="mailto:game_ma666@163.com">game_ma666@163.com</a>
   </div>
 
 </main>
@@ -345,7 +215,7 @@
   <span>·</span>
   <span>All rights reserved</span>
   <span>·</span>
-  <span>Made with 🍭 & ❤️</span>
+  <span>Made with 🍭 &amp; ❤️</span>
 </footer>
 
 </body>
